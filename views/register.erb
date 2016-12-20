@@ -1,0 +1,9 @@
+<form action="/register">
+<input type="text" name="username" placeholder="username"/></br></br>
+<input type="password" name="password" placeholder="password"/>
+<button>Register</button>
+</form>
+
+<% if @params[:failed_attempt] = true %>
+<p class="failed_attempt">Register failed. Please try again!</p>
+<% end %>

@@ -5,19 +5,22 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>Document</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
   <link href="https://fonts.googleapis.com/css?family=Anton|Montserrat" rel="stylesheet">
   <link rel="stylesheet" href="/CSS/style.css">
 </head>
 <body>
 <header>
 <nav class="navbar">
-<img src="/broth-icon.png" id="logo" /><h1 class="logo_text">Instapes</h1>
+    <a class="navbar-brand" href="/">
+      <img src="/broth-icon.png" id="logo" /><h1 class="logo_text">Instapes</h1>
+    </a>
 </nav>
 
 
 </header>
 <% if logged_in? %>
-  <form action="" method="post">
+  <form action="/index" method="post">
     <input type="hidden" name="_method" value="delete" />
     <button>Log Out</button>
   </form>

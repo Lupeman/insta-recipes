@@ -3,17 +3,35 @@ body {
 }
 
 #logo {
-  height: 100px;
+  height: 70px;
   width: auto;
   margin:0;
   padding:0;
 }
 .logo_text{
   font-family: 'Anton', sans-serif;
-  font-size: 50px;
+  font-size: 30px;
   margin:0;
   padding:0;
   display:inline-block;
+}
+.jumbotron {
+  margin-top: 130px;
+  height: 400px;
+  background-image: url("/kitchen-table.jpg");
+  background-position: center;
+  background-size: cover;
+  color: #000000;
+}
+
+.overlay {
+  background-color: rgba(35, 82, 124, 0.4);
+}
+#welcome_header {
+  font-size: 80px;
+}
+#welcome_text {
+  font-size: 30px;
 }
 
 ul{
@@ -22,5 +40,8 @@ ul{
 
 #insta_connection {
   text-decoration: none;
+}
 
+.failed_attempt {
+  color: red;
 }

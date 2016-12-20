@@ -19,7 +19,7 @@ helpers do
   end
 
   def current_user
-    User.find_by(user_id: session[:user_id])
+    User.find_by(id: session[:user_id])
   end
 end
 
@@ -41,12 +41,16 @@ get "/oauth/connect" do
 end
 
 get "/login" do
+  erb :login
+end
+
+post "/login" do
   username = params[:username]
   password = params[:password]
   user = User.find_by(username: username)
   if user
     user.authenticate(password: params[:password])
-    if true
+    if !!user
       session[:user_id] = user.id
       redirect "/saved_blogs"
     else
@@ -54,21 +58,25 @@ get "/login" do
       redirect "/index"
     end
   else
-    "That username doesn't exist in our database! Please connect with instagram first!"
+    redirect to('/register?failed_attempt=true')
   end
+end
+
+get "/register" do
+    erb :register
 end
 
 post "/register" do
   username = params[:username]
   user = User.find_by(username: username)
   if user
-    "That user is already registered"
+    "That user is already registered - please log in!"
     redirect "/index"
   else
     user = User.new(username, password: params[:password])
     user.save
     session[:user_id] = user.id
-    redirect to "/saved_blogs"
+    redirect to "/blogs"
   end
 end
 
@@ -80,7 +88,7 @@ end
 # Redirect URI
 get "/oauth/callback" do
   response = Instagram.get_access_token(params[:code], :redirect_uri => CALLBACK_URL)
-  user = User.new(username: response.user.username, password:)
+  user = User.new(username: response.user.username)
   user.save
   session[:user_id] = user.id
   session[:access_token] = response.access_token
@@ -98,14 +106,21 @@ get "/feed" do
 end
 
 get "/blogs" do
-  client = Instagram.client(:access_token => session[:access_token])
-  @users = []
-  @followers = client.user_follows
-  @followers.each do |follower|
-    @users.push(client.user(follower["id"]))
+  @blogs = Blog.where(user_id: session[:user_id])
+  if @blogs.length > 0
+    erb :saved_blogs
+  else
+    redirect to "/oauth/connect"
   end
-  erb :blogs
 end
+  # client = Instagram.client(:access_token => session[:access_token])
+  # @users = []
+  # @followers = client.user_follows
+  # @followers.each do |follower|
+  #   @users.push(client.user(follower["id"]))
+  # end
+  # erb :blogs
+
 
 post "/blogs" do
   @listings = @params["users"]
@@ -122,7 +137,7 @@ post "/blogs" do
   "Great Job!"
 end
 
-delete "/session" do
+delete "/index" do
   session[:user_id] = nil
   redirect to "index"
 end
