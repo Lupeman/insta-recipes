@@ -121,3 +121,8 @@ post "/blogs" do
   cse.save
   "Great Job!"
 end
+
+delete "/session" do
+  session[:user_id] = nil
+  redirect to "index"
+end

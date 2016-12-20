@@ -16,7 +16,12 @@
 
 
 </header>
-
+<% if logged_in? %>
+  <form action="" method="post">
+    <input type="hidden" name="_method" value="delete" />
+    <button>Log Out</button>
+  </form>
+<% end %>
 
   <%= yield %>
 
