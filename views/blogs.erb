@@ -1,0 +1,10 @@
+
+<form action="/blogs" method="post">
+  <% @users.each do |follower| %>
+    <fieldset>
+      <input type="checkbox" name="users[][username]" value="<%= follower.username %>"><%= follower.username %> : <%= follower.website %>
+      <input type="hidden" name="users[][website]" value="<%= follower.website %>" />
+    </fieldset>
+  <% end %>
+  <input type="submit" value="submit">
+</form>
