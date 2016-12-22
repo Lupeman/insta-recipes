@@ -1,37 +1,89 @@
 body {
   font-family: 'Montserrat', sans-serif;
+  background-color: #e9092d;
+  color: #000000;
 }
 
 #logo {
-  height: 70px;
+  height: 80px;
   width: auto;
   margin:0;
-  padding:0;
+  padding:0 0 0 20px;
 }
 .logo_text{
   font-family: 'Anton', sans-serif;
   font-size: 30px;
   margin:0;
-  padding:0;
+  padding:0 0 0 10px;
   display:inline-block;
+  color:#000000;
+}
+
+.navbar-form {
+  padding-right: 50px;
+  margin-top: -50px;
+  position: relative;
+  z-index: 1;
 }
 .jumbotron {
   margin-top: 130px;
   height: 400px;
-  background-image: url("/kitchen-table.jpg");
-  background-position: center;
+  background-image: url("/magnifying_glass.jpg");
+  background-position: 50% 70%;
   background-size: cover;
-  color: #000000;
+  color: #ffffff;
 }
 
 .overlay {
-  background-color: rgba(35, 82, 124, 0.4);
+  background-color: rgba(0, 0, 0, 0.6);
+  height: 100%;
+  width: 100%;
 }
+
 #welcome_header {
   font-size: 80px;
+  padding: 15px 0;
 }
 #welcome_text {
   font-size: 30px;
+}
+
+.login_container, .register_container {
+  margin-top: 150px;
+}
+
+.register_greeting, .sign_in_greeting, .register_text {
+  color:#ffffff;
+  text-align: center;
+}
+
+.register_greeting {
+  font-size: 30px;
+}
+.register_text {
+  font-size: 15px;
+}
+
+.create_acc_text {
+  color:#ffffff;
+  font-size: 20px;
+}
+
+.sign_in_greeting {
+  font-size: 25px;
+}
+
+.login, .register{
+  background-color: #ffffff;
+  width: auto;
+  height: auto;
+  padding: 50px 60px;
+}
+
+.need_to_register {
+  color: #ffffff;
+  text-align: center;
+  padding: 15px 0;
 }
 
 ul{
@@ -42,6 +94,83 @@ ul{
   text-decoration: none;
 }
 
-.failed_attempt {
+.login_error, .register_error {
   color: red;
+}
+
+footer a {
+  text-decoration: none;
+}
+.copyrt {
+  margin-top: 90px;
+  color:#000000;
+  font-size: 13px;
+  padding-left: 20px;
+}
+
+.your_search_text {
+  font-size: 20px;
+  color: #000000;
+  font-weight:bold;
+}
+.search_bar {
+  background-position: center;
+  background-size: cover;
+  height:1500px;
+  padding-top:50px;
+}
+.just_search_engine {
+  margin-top: 150px;
+}
+.result_links{
+  padding-left:50px;
+  padding-top: 50px;
+}
+
+.result {
+  padding: 10px 0;
+  font-size: 15px;
+}
+
+.search_box {
+  margin-top: 150px;
+  margin-left: 100px;
+  background-color: #f3f3f5;
+}
+
+.oops_search_eyes {
+  margin: 150px auto;
+  width:300px;
+  text-align: center;
+}
+.oops_search_eyes p {
+  font-size: 30px;
+}
+
+button {
+  border-radius: 5px;
+  border: 1px solid #000000;
+  color:#ffffff;
+  padding: 5px 10px;
+  background-color: #000000;
+  width: 85px;
+}
+
+button:hover {
+  border-radius: 5px;
+  border: 2px solid #000000;
+  color:#000000;
+  padding: 5px 10px;
+  background-color: #ffffff;
+  width: 85px;
+}
+
+.search_button {
+  margin-right: 130px;
+  border-radius: 5px;
+  border: 1px solid #000000;
+  color:#ffffff;
+  padding: 5px 10px;
+  background-color: #000000;
+  width: 85px;
 }

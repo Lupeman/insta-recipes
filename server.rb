@@ -6,11 +6,15 @@ require 'sinatra/activerecord'
 require 'json'
 require 'pg'
 require 'instagram'
+require 'httparty'
 require_relative 'models/blog'
 require_relative 'models/cse'
 require_relative 'models/user'
-
-
+require_relative 'routes/insta_oath'
+require_relative 'routes/login'
+require_relative 'routes/register'
+require_relative 'routes/select_blogs'
+require_relative 'routes/search'
 enable :sessions
 
 helpers do
@@ -23,76 +27,8 @@ helpers do
   end
 end
 
-CALLBACK_URL = "http://localhost:4567/oauth/callback"
-
-Instagram.configure do |config|
-  config.client_id = ENV["INSTAGRAM_CLIENT_ID"]
-  config.client_secret = ENV["INSTAGRAM_CLIENT_SECRET"]
-  config.scope = "public_content follower_list"
-end
-
 get "/" do
-
-erb :index
-end
-
-get "/oauth/connect" do
-  redirect Instagram.authorize_url(:redirect_uri => CALLBACK_URL)
-end
-
-get "/login" do
-  erb :login
-end
-
-post "/login" do
-  username = params[:username]
-  password = params[:password]
-  user = User.find_by(username: username)
-  if user
-    user.authenticate(password: params[:password])
-    if !!user
-      session[:user_id] = user.id
-      redirect "/saved_blogs"
-    else
-      "Incorrect password..please try again"
-      redirect "/index"
-    end
-  else
-    redirect to('/register?failed_attempt=true')
-  end
-end
-
-get "/register" do
-    erb :register
-end
-
-post "/register" do
-  username = params[:username]
-  user = User.find_by(username: username)
-  if user
-    "That user is already registered - please log in!"
-    redirect "/index"
-  else
-    user = User.new(username, password: params[:password])
-    user.save
-    session[:user_id] = user.id
-    redirect to "/blogs"
-  end
-end
-
-get "/saved_blogs" do
-  @listings = Blog.where(user_id: session[:user_id])
-  erb :saved_blogs
-end
-
-# Redirect URI
-get "/oauth/callback" do
-  response = Instagram.get_access_token(params[:code], :redirect_uri => CALLBACK_URL)
-  user = User.new(username: response.user.username)
-  user.save
-  session[:user_id] = user.id
-  session[:access_token] = response.access_token
-  redirect "/blogs"
+  erb :index
 end
 
 get "/feed" do
@@ -105,39 +41,10 @@ get "/feed" do
   html
 end
 
-get "/blogs" do
-  @blogs = Blog.where(user_id: session[:user_id])
-  if @blogs.length > 0
-    erb :saved_blogs
-  else
-    redirect to "/oauth/connect"
-  end
-end
-  # client = Instagram.client(:access_token => session[:access_token])
-  # @users = []
-  # @followers = client.user_follows
-  # @followers.each do |follower|
-  #   @users.push(client.user(follower["id"]))
-  # end
-  # erb :blogs
 
-
-post "/blogs" do
-  @listings = @params["users"]
-  @listings.each do |user|
-    @blog_name = user["username"]
-    @url = user["website"]
-    blog = Blog.new(blog_name: @blog_name, url: @url, user_id: session[:user_id])
-    blog.save
-  end
-  annotation = erb :annotations, :layout => false
-
-  cse = CSE.new(user_id: session[:user_id], annotation: annotation)
-  cse.save
-  "Great Job!"
-end
 
 delete "/index" do
   session[:user_id] = nil
-  redirect to "index"
+  session[:access_token] = nil
+  redirect to "/"
 end

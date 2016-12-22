@@ -1,15 +1,16 @@
+<% if !logged_in? %>
 <form class="navbar-form navbar-right">
 <a href="/login"><button type="button" class="btn btn-default navbar-btn">Login</button></a>
-<button type="button" class="btn btn-default navbar-btn">Register</button>
+<a href="/register"><button type="button" class="btn btn-default navbar-btn">Register</button></a>
 </form>
+<% end %>
 
 
-<div class="jumbotron overlay">
-  <div class="container">
-      <h1 class="welcome_message" id="welcome_header">Welcome to Instapes!</h1>
-      <p class="welcome_message" id="welcome_text">An easier way to search for recipes from the people that matter to you.</p>
+<div class="jumbotron">
+  <div class="overlay">
+    <div class="container">
+      <h1 class="welcome_message" id="welcome_header">Welcome to Mynsta!</h1>
+      <p class="welcome_message" id="welcome_text">Customise your own personal search engine for Instagram.</br>An easier way to access the information that matters to you.</p>
     </div>
+  </div>
 </div>
-<form action="/oauth/connect">
-  <button type="submit" value="connect to Instagram">Connect to Instagram</button>
-</form>

@@ -1,9 +1,33 @@
-<form action="/register">
-<input type="text" name="username" placeholder="username"/></br></br>
-<input type="password" name="password" placeholder="password"/>
-<button>Register</button>
-</form>
 
-<% if @params[:failed_attempt] = true %>
-<p class="failed_attempt">Register failed. Please try again!</p>
-<% end %>
+
+
+
+<div class="register_container">
+  <div class="row">
+    <div class="col-md-4">
+    </div>
+    <div class="col-md-4">
+      <p class="create_acc_text">Create your account</p>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-4">
+      <h4 class="register_greeting">Join Mynsta</h4>
+      <p class="register_text">Customised searches for your Instagram!</p>
+    </div>
+    <div class="col-md-4">
+      <div class="register">
+        <form action="/register" method="post">
+          <p class="register_error"><%= @error %></p>
+          <label for="usr_new">Username</label>
+          <input type="text" name="username" class="form-control" id="usr_new"/>
+          <p>This will be your username</p></br>
+          <label for="pwd_new">Password</label>
+          <input type="password" name="password" class="form-control" id="pwd_new"/>
+          <p>Remember to make it unique!</p></br>
+          <button>Create Account</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

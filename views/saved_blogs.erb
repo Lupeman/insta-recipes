@@ -1,3 +1,25 @@
-<% @listings.each do |follower| %>
-  <p><%= follower.blog_name %> : <%= follower.url %></p>
-<% end %>
+
+<div class="container search_box">
+  <div class="row" id="search_engine">
+    <div class="col-md-4 search_bar">
+      <form action="/search" method="post">
+        <label for="search" class="your_search_text">Your Customised Search</label>
+        <input type="text" name="q" class="form-control" id="search" /></br>
+        <button>Search</button>
+      </form>
+    </div>
+    <div class="col-md-8 result_links">
+      <% if @search_results %>
+        <% @search_results["items"].each do |blog| %>
+          <div class="row result">
+            <div class="col-md-12">
+              <p><%= blog["displayLink"] %></p>
+              <p><%= blog["title"] %></p>
+              <p><a href=<%= blog['link'] %> target="_blank"><%= blog["link"] %></a></p></br>
+            </div>
+          </div>
+        <% end %>
+      <% end %>
+    </div>
+  </div>
+</div>

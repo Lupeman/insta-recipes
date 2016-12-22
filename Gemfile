@@ -8,4 +8,4 @@ gem 'pg'
 gem 'rake'
 gem 'bcrypt'
 gem 'instagram'
-gem "google_custom_search_api"
+gem 'httparty', '~> 0.13.7'

@@ -1,5 +1,32 @@
-<form action="/login" method="post">
-<input type="text" name="username" placeholder="username"/></br></br>
-<input type="password" name="password" placeholder="password"/>
-<button>Log in</button>
-</form>
+<div class="login_container">
+  <div class="row">
+    <div class="col-md-4">
+    </div>
+    <div class="col-md-4">
+      <h4 class="sign_in_greeting">Sign in to Mynsta</h4>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-4">
+    </div>
+    <div class="col-md-4">
+      <div class="login">
+        <p class="login_error"><%= @error %></p>
+        <form action="/login" method="post">
+          <label for="usr">Username</label>
+          <input type="text" name="username" class="form-control" id="usr" /></br></br>
+          <label for="pwd">Password</label>
+          <input type="password" name="password" class="form-control" id="pwd"/></br></br>
+          <button>Log in</button>
+        </form>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-4">
+    </div>
+    <div class="col-md-4">
+      <p class="need_to_register">New to Mynsta? <a href="/register">Create an acccount.</a></p>
+    </div>
+  </div>
+</div>
