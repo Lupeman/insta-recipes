@@ -7,33 +7,39 @@
   <title>Document</title>
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
   <link href="https://fonts.googleapis.com/css?family=Anton|Montserrat" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
   <link rel="stylesheet" href="/CSS/style.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 </head>
 <body>
-<header>
-<nav class="navbar">
-    <a class="navbar-brand" href="/">
-      <img src="/bullseye.png" id="logo" /><h1 class="logo_text">Mynsta</h1>
+  <header>
+    <nav class="navbar">
+      <div class="container_navbar">
+        <div class="row">
+          <div class="col-md-6">
+            <a class="navbar-brand" href="/">
+              <img src="/bullseye.png" id="logo" />
+              <h1 class="logo_text">Mynsta</h1>
+            </a>
+          </div>
+      <% if logged_in? %>
+          <div class="col-md-3">
+          </div>
+          <div class="col-md-3">
+            <form action="/index" method="post" class="logout_button">
+              <input type="hidden" name="_method" value="delete" />
+              <button>Log Out</button>
+            </form>
+            <a href="/search_bar" class="search_link">Search</a>
+          </div>
+      <% end %>
+    </nav>
+  </header>
+  <%= yield %>
+  <footer>
+    <a href="http://www.jaimegunther.com" target="_blank">
+      <p class="copyrt">&copy jaimegunther.com 2016</p>
     </a>
-</nav>
-
-
-</header>
-
-<% if logged_in? %>
-  <a href="/search_bar"><button class="navbar-form navbar-right search_button">Search</button></a>
-  <form action="/index" method="post" class="navbar-form navbar-right">
-    <input type="hidden" name="_method" value="delete" />
-    <button>Log Out</button>
-  </form>
-<% end %>
-
-
-<%= yield %>
-<footer>
-<a href="http://www.jaimegunther.com" target="_blank";<p class="copyrt">&copy jaimegunther.com 2016</p></a>
-</footer>
-
-
+  </footer>
 </body>
 </html>
