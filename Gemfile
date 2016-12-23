@@ -9,5 +9,5 @@ gem 'pg'
 gem 'rake'
 gem 'bcrypt'
 gem 'instagram'
-gem 'httparty', '~> 0.13.7'
+gem 'httparty'
 
