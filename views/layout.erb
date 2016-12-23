@@ -12,34 +12,30 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 </head>
 <body>
-  <header>
+
+    <% unless request.path_info == "/" %>
+      <header>
     <nav class="navbar">
-      <div class="container_navbar">
-        <div class="row">
-          <div class="col-md-6">
             <a class="navbar-brand" href="/">
               <img src="/bullseye.png" id="logo" />
               <h1 class="logo_text">Mynsta</h1>
             </a>
-          </div>
       <% if logged_in? %>
-          <div class="col-md-3">
-          </div>
-          <div class="col-md-3">
             <form action="/index" method="post" class="logout_button">
               <input type="hidden" name="_method" value="delete" />
               <button>Log Out</button>
             </form>
             <a href="/search_bar" class="search_link">Search</a>
-          </div>
       <% end %>
     </nav>
   </header>
+    <% end %>
   <%= yield %>
   <footer>
     <a href="http://www.jaimegunther.com" target="_blank">
       <p class="copyrt">&copy jaimegunther.com 2016</p>
     </a>
   </footer>
+
 </body>
 </html>

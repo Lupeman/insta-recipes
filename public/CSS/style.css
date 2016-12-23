@@ -1,31 +1,12 @@
+html, body {
+  height: 100%
+}
+
 body {
   font-family: 'Montserrat', sans-serif;
   background-color: #e9092d;
   color: #000000;
-  /*-webkit-animation-name: background; /* Safari 4.0 - 8.0 */
-    /*-webkit-animation-duration: 30s; /* Safari 4.0 - 8.0 */
-    /*animation-name: background;*/
-    /*animation-duration: 30s;*/
 }
-
-/* Safari 4.0 - 8.0 */
-/*@-webkit-keyframes background {
-    0%   {background-color: #e9092d;}
-    16%  {background-color: yellow;}
-    32%  {background-color: blue;}
-    48% {background-color: purple;}
-    64% {background-color: green;}
-    80% {background-color: red;}
-    100% {background-color: #e9092d;}
-}*/
-
-/* Standard syntax */
-/*@keyframes backgorund {
-    0%   {background-color: red;}
-    25%  {background-color: yellow;}
-    50%  {background-color: blue;}
-    100% {background-color: green;}
-}*/
 .navbar-brand {
   margin-top: -10px;
 }
@@ -229,4 +210,46 @@ button:hover {
 }
 .navbar-form {
   margin-top: 10px;
+}
+
+.wrapper {
+  color:#000000;
+  min-height: 100%;
+  margin-bottom: -150px;
+}
+
+.logo_image {
+  -webkit-animation-delay: 1s;
+  -moz-animation-delay: 1s; /* Safari 4.0 - 8.0 */
+  animation-delay: 1s;
+}
+
+.bullseye {
+  height:180px;
+  width: auto;
+  margin-top:150px;
+  margin-left:600px;
+}
+
+.cover_text {
+  margin-left:595px;
+  -webkit-animation-delay: 1.5s;
+  -moz-animation-delay: 1.5s; /* Safari 4.0 - 8.0 */
+  animation-delay: 1.5s;
+  text-transform: uppercase;
+}
+
+.enter {
+  font-size: 15px;
+  text-transform: uppercase;
+  margin-left: 645px;
+  -webkit-animation-delay: 1.6s;
+  -moz-animation-delay: 1.6s; /* Safari 4.0 - 8.0 */
+  animation-delay: 1.6s;
+  color:#000000;
+}
+
+.enter:hover {
+  color: #ffffff;
+  text-decoration: none;
 }

@@ -41,6 +41,13 @@ get "/feed" do
   html
 end
 
+get "/cover" do
+  erb :cover
+end
+
+get "/index" do
+  erb :index
+end
 
 
 delete "/index" do

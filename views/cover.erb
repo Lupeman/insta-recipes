@@ -1,0 +1,22 @@
+<% if !logged_in? %>
+<div class="row">
+<form class="navbar-form navbar-right">
+  <div class="col-md-1">
+<a href="/login"><button type="button" class="btn btn-default navbar-btn">Login</button></a>
+</div>
+<div class="col-md-1">
+<a href="/register"><button type="button" class="btn btn-default navbar-btn">Register</button></a>
+</div>
+</form>
+</div>
+<% end %>
+
+
+<div class="jumbotron">
+  <div class="overlay">
+    <div class="container">
+      <h1 class="welcome_message animated bounce" id="welcome_header">Welcome to Mynsta!</h1>
+      <p class="welcome_message" id="welcome_text">Customise your own personal search engine for Instagram.</br>An easier way to access the information that matters to you.</p>
+    </div>
+  </div>
+</div>
