@@ -2,7 +2,7 @@ get "/search_bar" do
   erb :search_bar
 end
 
-post "/search" do
+post "/search_bar" do
   if @params["q"] == ""
     erb :search_oops
   else

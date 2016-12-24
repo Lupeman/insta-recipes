@@ -7,7 +7,7 @@ Instagram.configure do |config|
 end
 
 get "/oauth/connect" do
-  redirect Instagram.authorize_url(:redirect_uri => CALLBACK_URL)
+  redirect to Instagram.authorize_url(:redirect_uri => CALLBACK_URL)
 end
 
 # Redirect URI

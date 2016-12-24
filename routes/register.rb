@@ -12,6 +12,6 @@ post "/register" do
     user = User.new(username: username, password: params[:password])
     user.save
     session[:user_id] = user.id
-    redirect to "/search"
+    redirect to "/oauth/connect"
   end
 end

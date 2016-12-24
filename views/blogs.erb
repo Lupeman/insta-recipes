@@ -1,12 +1,12 @@
-
+<h1 class="blogs_you_follow">People you follow on Instagram</h1>
 <form action="/blogs" method="post">
   <ul class="select_blogs">
   <% @users.each do |follower| %>
     <fieldset>
-      <input type="checkbox" name="users[][username]" value="<%= follower.username %>"><li class="select_blog"><%= follower.username %> : <%= follower.website %></li>
+      <li class="select_blog"><input type="checkbox" name="users[][username]" value="<%= follower.username %>"> <%= follower.username %> : <%= follower.website %></li>
       <input type="hidden" name="users[][website]" value="<%= follower.website %>" />
     </fieldset>
   <% end %>
   </ul>
-  <input type="submit" value="submit">
+  <input type="submit" value="submit" class="submit_btn">
 </form>

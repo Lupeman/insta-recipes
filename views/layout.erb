@@ -12,30 +12,45 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 </head>
 <body>
-
+  <div class='page-wrap'>
     <% unless request.path_info == "/" %>
       <header>
     <nav class="navbar">
-            <a class="navbar-brand" href="/">
-              <img src="/bullseye.png" id="logo" />
-              <h1 class="logo_text">Mynsta</h1>
-            </a>
-      <% if logged_in? %>
+      <div class="row">
+        <div class="col-md-9">
+          <a class="navbar-brand" href="/">
+            <img src="/bullseye.png" id="logo" />
+            <h1 class="logo_text">Mynsta</h1>
+          </a>
+        </div>
+        <div class="col-md-3">
+          <% if logged_in? %>
             <form action="/index" method="post" class="logout_button">
               <input type="hidden" name="_method" value="delete" />
               <button>Log Out</button>
             </form>
             <a href="/search_bar" class="search_link">Search</a>
-      <% end %>
+          <% else %>
+            <a href="/login" class="pull-right">
+              <button type="button">Login</button>
+            </a>
+
+            <a href="/register" class="pull-right">
+              <button type="button">Register</button>
+            </a>
+          <% end %>
+        </div>
+      </div>
     </nav>
   </header>
     <% end %>
   <%= yield %>
-  <footer>
-    <a href="http://www.jaimegunther.com" target="_blank">
-      <p class="copyrt">&copy jaimegunther.com 2016</p>
-    </a>
-  </footer>
+</div>
+<footer class='site-footer'>
+  <a href="http://www.jaimegunther.com" target="_blank">
+    <p class="copyrt">&copy jaimegunther.com 2016</p>
+  </a>
+</footer>
 
 </body>
 </html>

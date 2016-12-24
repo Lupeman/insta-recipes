@@ -24,5 +24,5 @@ post "/blogs" do
 
   cse = CSE.new(user_id: session[:user_id], annotation: annotation)
   cse.save
-  "Great Job!"
+  erb :search_bar
 end

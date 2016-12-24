@@ -33,10 +33,12 @@ body {
 }
 
 .navbar-form {
-  padding-right: 50px;
-  margin-top: -50px;
   position: relative;
   z-index: 1;
+}
+.navbar-btn {
+  padding:0 5px;
+  display: inline-block;
 }
 .jumbotron {
   margin-top: 130px;
@@ -166,18 +168,24 @@ footer a:hover {
 
 button {
   border-radius: 5px;
-  border: 1px solid #000000;
-  color:#ffffff;
   padding: 5px 10px;
-  background-color: #000000;
   width: 85px;
+  margin: 10px 5px;
+  border: 2px solid #000000;
+  color:#000000;
+  background-color: #ffffff;
 }
+
+.create_account_btn {
+  width:150px;
+}
+
 .search_link{
   font-size: 18px;
   color: #000000;
   float: right;
   margin-right:20px;
-  padding-top: 10px;
+  padding-top: 25px;
 }
 
 .search_link:hover {
@@ -191,12 +199,9 @@ button {
 }
 
 button:hover {
-  border-radius: 5px;
-  border: 2px solid #000000;
-  color:#000000;
-  padding: 5px 10px;
-  background-color: #ffffff;
-  width: 85px;
+  border: 1px solid #000000;
+  color:#ffffff;
+  background-color: #000000;
 }
 
 .search_button {
@@ -252,4 +257,54 @@ button:hover {
 .enter:hover {
   color: #ffffff;
   text-decoration: none;
+}
+
+
+.select_blogs {
+  padding-left: 30px;
+}
+
+.select_blog {
+  padding-bottom:10px;
+}
+
+/* sticky footer */
+* {
+  margin: 0;
+}
+html, body {
+  height: 100%;
+}
+.page-wrap {
+  min-height: 100%;
+  /* equal to footer height */
+  margin-bottom: -120px;
+}
+.page-wrap:after {
+  content: "";
+  display: block;
+}
+.site-footer, .page-wrap:after {
+  height: 120px;
+}
+.submit_btn {
+  border-radius: 5px;
+  padding: 5px 10px;
+  width: 85px;
+  margin: 10px 5px 10px 20px;
+  border: 2px solid #000000;
+  color:#000000;
+  background-color: #ffffff;
+}
+.submit_btn:hover {
+border: 1px solid #000000;
+color:#ffffff;
+background-color: #000000;
+}
+
+.blogs_you_follow {
+  font-size: 25px;
+  margin-left:20px;
+  margin-top: 200px;
+  padding-bottom: 10px;
 }

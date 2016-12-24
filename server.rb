@@ -13,7 +13,7 @@ require_relative 'models/user'
 require_relative 'routes/insta_oath'
 require_relative 'routes/login'
 require_relative 'routes/register'
-require_relative 'routes/select_blogs'
+require_relative 'routes/blogs'
 require_relative 'routes/search'
 enable :sessions
 
